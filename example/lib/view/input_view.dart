@@ -77,8 +77,8 @@ class _InputViewState extends State<InputView> {
                     position: emailController.text.toString());
                 try {
                   var jsonData = jsonEncode(userModel);
-                  await HiveCNBLocalService()
-                      .saveCNBHiveBox(LocalSource.USER_BOX, jsonData);
+                  await HiveLocalService()
+                      .saveHiveBox(LocalSource.USER_BOX, jsonData);
                 } catch (e) {
                   print("Error Exceptions-------- $e");
                 }

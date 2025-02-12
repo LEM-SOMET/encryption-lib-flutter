@@ -1,4 +1,4 @@
-library cnb_local_database;
+library my_local_database;
 
 export 'local_service_non_encryption/local_service_non_encryption.dart';
 

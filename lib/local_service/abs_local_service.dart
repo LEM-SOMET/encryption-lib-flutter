@@ -1,6 +1,6 @@
 abstract class IHiveLocalService {
-  Future<void> saveCNBHiveBox(String hiveBoxFieldName, dynamic value);
-  Future<List<dynamic>> retrieveCNBHiveBox(String hiveBoxFieldName);
-  Future<void> clearCNBHiveBox(String hiveBoxFieldName);
-  Future<void> deleteCNBHiveBoxAt(String hiveBoxFieldName, int index);
+  Future<void> saveHiveBox(String hiveBoxFieldName, dynamic value);
+  Future<List<dynamic>> retrieveHiveBox(String hiveBoxFieldName);
+  Future<void> clearHiveBox(String hiveBoxFieldName);
+  Future<void> deleteHiveBoxAt(String hiveBoxFieldName, int index);
 }

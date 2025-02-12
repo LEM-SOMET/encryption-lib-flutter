@@ -1,20 +1,21 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:cnb_local_database/encryptions/encryption_service.dart';
-import 'package:cnb_local_database/local_service/abs_local_service.dart';
-import 'package:cnb_local_database/utils/source_key.dart';
 import 'package:hive/hive.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:my_local_database/local_service/abs_local_service.dart';
+import 'package:my_local_database/utils/source_key.dart';
 import 'package:path_provider/path_provider.dart';
 
-class HiveCNBLocalService extends IHiveLocalService {
-  static HiveCNBLocalService? _instance;
-  HiveCNBLocalService._();
+import '../encryptions/encryption_service.dart';
 
-  factory HiveCNBLocalService() {
-    _instance ??= HiveCNBLocalService._();
+class HiveLocalService extends IHiveLocalService {
+  static HiveLocalService? _instance;
+  HiveLocalService._();
+
+  factory HiveLocalService() {
+    _instance ??= HiveLocalService._();
     return _instance!;
   }
 
@@ -38,19 +39,19 @@ class HiveCNBLocalService extends IHiveLocalService {
   }
 
   @override
-  Future<void> clearCNBHiveBox(String hiveBoxFieldName) async {
+  Future<void> clearHiveBox(String hiveBoxFieldName) async {
     await _getInstance(hiveBoxFieldName);
     await _clearBox(_localCNBAppBox);
   }
 
   @override
-  Future<void> deleteCNBHiveBoxAt(String hiveBoxFieldName, int index) async {
+  Future<void> deleteHiveBoxAt(String hiveBoxFieldName, int index) async {
     await _getInstance(hiveBoxFieldName);
     await _deleteBoxValueAt(_localCNBAppBox, index);
   }
 
   @override
-  Future<List<dynamic>> retrieveCNBHiveBox(String hiveBoxFieldName) async {
+  Future<List<dynamic>> retrieveHiveBox(String hiveBoxFieldName) async {
     try {
       await _getInstance(hiveBoxFieldName);
       List<dynamic> dataHiveBox = [];
@@ -67,7 +68,7 @@ class HiveCNBLocalService extends IHiveLocalService {
   }
 
   @override
-  Future<void> saveCNBHiveBox(String hiveBoxFieldName, dynamic value) async {
+  Future<void> saveHiveBox(String hiveBoxFieldName, dynamic value) async {
     try {
       await _getInstance(hiveBoxFieldName);
       var encrypt = EncryptionService().encryptData(value);

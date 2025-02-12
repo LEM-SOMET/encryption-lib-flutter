@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-import 'package:cnb_local_database/cnb_local_database.dart';
+import 'package:cnb_local_database/my_local_database.dart';
 import 'package:example/model/user_model.dart';
 import 'package:example/util/local_source.dart';
 import 'package:example/view/input_view.dart';
@@ -40,8 +40,7 @@ class _MyListViewState extends State<MyListView> {
   }
 
   void _getAllBoxValues() async {
-    final user =
-        await HiveCNBLocalService().retrieveCNBHiveBox(LocalSource.USER_BOX);
+    final user = await HiveLocalService().retrieveHiveBox(LocalSource.USER_BOX);
     setState(() {
       list = [];
       try {
@@ -66,7 +65,7 @@ class _MyListViewState extends State<MyListView> {
         actions: [
           IconButton(
             onPressed: () async {
-              await HiveCNBLocalService().clearCNBHiveBox(LocalSource.USER_BOX);
+              await HiveLocalService().clearHiveBox(LocalSource.USER_BOX);
               setState(() {});
             },
             icon: const Icon(Icons.delete_forever),

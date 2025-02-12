@@ -5,12 +5,12 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:path_provider/path_provider.dart';
 
-class HiveCNBLocalServiceNonEncryption {
-  static HiveCNBLocalServiceNonEncryption? _instance;
-  HiveCNBLocalServiceNonEncryption._();
+class HiveLocalServiceNonEncryption {
+  static HiveLocalServiceNonEncryption? _instance;
+  HiveLocalServiceNonEncryption._();
 
-  factory HiveCNBLocalServiceNonEncryption() {
-    _instance ??= HiveCNBLocalServiceNonEncryption._();
+  factory HiveLocalServiceNonEncryption() {
+    _instance ??= HiveLocalServiceNonEncryption._();
     return _instance!;
   }
 

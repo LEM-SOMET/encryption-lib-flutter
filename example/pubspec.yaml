@@ -31,7 +31,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cnb_local_database:
+  my_local_database:
     path: ../
 
   # The following adds the Cupertino Icons font to your application.
